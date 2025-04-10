@@ -1,36 +1,35 @@
 # pgbadger-reporter
 pgbadger-reporter is a Dockerized tool that automates the download of RDS logs, generates pgBadger reports for the past 24 hours, 48 hours, and one week, and uploads the reports to an S3 bucket.
 
-🚀 pgBadger Reporter – Setup & Usage Guide
-✅ 1. Set Up AWS Credentials
+ pgBadger Reporter – Setup & Usage Guide
+ 1. Set Up AWS Credentials
 Make sure your system has the following files:
 
-🗂 ~/.aws/credentials
+~/.aws/credentials
 
 [default]
 aws_access_key_id=YOUR_ACCESS_KEY
 aws_secret_access_key=YOUR_SECRET_KEY
 aws_session_token=YOUR_SESSION_TOKEN  # (optional for long-lived keys)
-🗂 ~/.aws/config
+~/.aws/config
 
 [default]
 region=us-east-1
 output=json
-🔒 Secure your credential files:
+Secure your credential files:
 
 chmod 600 ~/.aws/credentials
 chmod 600 ~/.aws/config
-🧩 2. Clone the Repository
+ 2. Clone the Repository
 bash
-Copy
-Edit
+
 git clone https://github.com/avisheshjha1105/pgbadger-reporter.git
 cd pgbadger-reporter
-🛠️ 3. Build the Docker Image
+ 3. Build the Docker Image
 bash
 
 docker build -t pgbadger-reporter .
-🐳 4. Run the Docker Container
+4. Run the Docker Container
 bash
 
 docker run --rm \
@@ -46,13 +45,10 @@ your-s3-bucket-name → the name of your S3 bucket
 2 = Last 48 hours
 3 = Last 7 days
 
-✅ What Happens When You Run It
-📥 Downloads PostgreSQL logs from AWS RDS
-
-📊 Analyzes logs using pgBadger
-
-🖨 Converts reports from HTML to PDF
-
-☁ Uploads both formats to your S3 bucket
+What Happens When You Run It
+Downloads PostgreSQL logs from AWS RDS
+Analyzes logs using pgBadger
+Converts reports from HTML to PDF
+Uploads both formats to your S3 bucket
 
 
